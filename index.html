@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YuvaShrishti Arts Registration form</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+
+    <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+ 
+<body>
+<h1>Arts Registration</h1>
+<br>
+
+<form name="google-sheet">
+    <div class="outerbox">
+        <div class="ficon">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+        </div>
+
+        <div class="fouterbox">
+            <div class="main">
+                <div class="left">
+                    <input type="text" name="fname" placeholder="Name">
+                    <input type="text" name="item" placeholder="Participating Item">
+                    <input type="text" name="email" placeholder="Email">
+                    <input type="text" name="mobile" placeholder="Mobile no">
+
+                    Male<input type="radio" name="gender" value="Male">
+                    Female<input type="radio" name="gender" value="Female">
+
+                    <input type="submit" name="submit" class="submit" style="border-radius: 20px;">
+                </div>
+
+               
+
+
+                <div class="right">
+                    <select name="maritalstatus">
+                        <option value="Not Provided">Marital Status</option>
+                        <option value="Married">Married</option>
+                        <option value="Unmarried">Unmarried</option> 
+                    </select>
+                    <select name="clubmember">
+                        <option value="Not Provided">Club Member</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                    <textarea name="address" placeholder="Address"></textarea>
+
+                    <input type="reset" name="" class="reset" style="border-radius: 20px;">
+                </div>
+            </div> 
+        </div>
+    </div>
+</form>
+
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw9Q0GiQ7cTdIrzQHTp_GzoTFjIbYMamu_HilcSKylYqheY0t9bZik-jxbPoOQBadQUPw/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+</body>
+
+</html>    
